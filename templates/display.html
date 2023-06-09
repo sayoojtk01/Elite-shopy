@@ -1,0 +1,55 @@
+{% extends 'head.html' %}
+{% block content %}
+<!-- //Modal2 -->
+<!-- /banner_bottom_agile_info -->
+<div class="page-head_agile_info_w3l">
+		<div class="container">
+			<h3><span>Register Here</span></h3>
+			<!--/w3_short-->
+				 <div class="services-breadcrumb">
+						<div class="agile_inner_breadcrumb">
+
+						   <ul class="w3_short">
+								<li><a href="index.html">Home</a><i>|</i></li>
+								<li>Register</li>
+							</ul>
+						 </div>
+				</div>
+	   <!--//w3_short-->
+	</div>
+</div>
+<style>
+  table,th,td{
+    border:1px solid black;
+    border-collapse: collapse;
+    padding: 15px;
+    margin :40px;
+
+  }
+</style>
+<table>
+  <tr>
+    <th>S.No</th>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Password</th>
+    <th>Phone</th>
+
+  </tr>
+
+  {% for x in datas %}
+  <tr>
+    <td>{{forloop.counter}}</td>
+    <td>{{x.name}}</td>
+    <td>{{x.email}}</td>
+    <td>{{x.password}}</td>
+    <td>{{x.phone}}</td>
+    <td><a href="/update/?regid={{x.id}}"><i class="fa fa-edit"></i></a> </td>
+    <td><a href="/delete/?regid={{x.id}}"><i class="fa fa-trash"></i></a> </td>
+  </tr>
+  {% endfor %}
+    
+
+
+</table>
+{% endblock %}

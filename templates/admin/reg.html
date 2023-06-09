@@ -1,0 +1,83 @@
+{% extends 'admin/headerfooter.html' %}
+{% block content %}
+<!--heder end here-->
+	<ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/adindex/">Home</a><i class="fa fa-angle-right"></i>Forms <i class="fa fa-angle-right"></i> Input</li>
+            </ol>
+		<!--grid-->
+ 	<div class="grid-form">
+ 		<div class="grid-form1">
+ 		<h2 id="forms-example" class="">Basic Form</h2>
+ 		<h4 style="text-align: center;color: white">{{success}}</h4>
+        <h4 style="text-align: center ;color: red ">{{error}}</h4>
+ 		<form action="/adform/" enctype="multipart/form-data" method="post">
+ 			{% csrf_token %}
+  <div class="form-group">
+    <label for="exampleInputEmail1">Product Name</label>
+    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Product name" name="name">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Price</label>
+    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Price" name="price">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Offer Price</label>
+    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Offer Price" name="offer">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputFile">File input</label>
+    <input type="File" id="File" name="image">
+    <!-- <p class="help-block">Example block-level help text here.</p> -->
+  </div>
+  <div class="form-group">
+		<label for="selector1" class="col-sm-2 control-label">Category</label>
+		<div class="col-sm-8"><select name="category" id="selector1" class="form-control1">
+			<option>Men's Wear</option>
+			<option>Women's Wear</option>
+			<!-- <option>Illum, fuga minus sit eaque.</option>
+			<option>Consequatur ducimus maiores voluptatum minima.</option> -->
+		</select></div>
+ </div>
+   <button type="submit" class="btn btn-default">Submit</button>
+</form>
+</div>
+
+  <script>
+    $(document).ready(function() {
+       var navoffeset=$(".header-main").offset().top;
+       $(window).scroll(function(){
+        var scrollpos=$(window).scrollTop(); 
+        if(scrollpos >=navoffeset){
+          $(".header-main").addClass("fixed");
+        }else{
+          $(".header-main").removeClass("fixed");
+        }
+       });
+       
+    });
+    </script>
+    <!-- /script-for sticky-nav -->
+<!--inner block start here-->
+<div class="inner-block">
+
+</div>
+<!--inner block end here-->
+<!--copy rights start here-->
+<div class="copyrights">
+   <p>© 2016 Pooled . All Rights Reserved | Design by  <a href="http://w3layouts.com/" target="_blank">W3layouts</a> </p>
+</div>  
+<!--COPY rights end here-->
+</div>
+</div>
+  <!--//content-inner-->
+    <!--/sidebar-menu-->
+        
+<!--js -->
+<script src="/static/admin/js/jquery.nicescroll.js"></script>
+<script src="/static/admin/js/scripts.js"></script>
+<!-- Bootstrap Core JavaScript -->
+   <script src="/static/admin/js/bootstrap.min.js"></script>
+   <!-- /Bootstrap Core JavaScript -->     
+
+
+{% endblock %}
